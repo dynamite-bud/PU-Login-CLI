@@ -1,0 +1,103 @@
+curl --data "Login=Log%20In&cmd=authenticate&password=Vaibs2507&user=154471" https://securelogin.pu.ac.in/cgi-bin/login
+
+
+
+// Authentication Failed Response header
+<div id="errorbox" style="">
+		Authentication failed </div>
+		<div id="registered" style="">
+			<h1 id="registeredhdr" class="swap"><span>REGISTERED USER</span></h1>
+			<form action="login" id="regform" method="post" autocomplete="off" title="Form used by registered users to login">
+
+			<div id="usernamebox">
+			<label for="user" accesskey="u">USERNAME</label>
+			<input type="text" name="user" id="user" size="25" class="text" accesskey="u" />
+			</div>
+			
+			<div id="passwordbox">
+			<label for="password" accesskey="p">PASSWORD</label>
+			<input id="password" name="password" type="password" size="25" class="text" accesskey="p" />
+			</div>
+
+			<div id="fqdnbox" style="display: none"></div>
+
+			<input type="hidden" name="cmd" value="authenticate" />
+			<input type="submit" name="Login" value="Log In" class="button" />
+			<p>Logging in as a registered user indicates you have 	read and accepted the <a href="javascript:void(0)" 	onclick="showPolicy();">Acceptable Use Policy</a>.</p>
+			
+			</form>
+		</div>
+
+
+
+// Access Denied Response header
+<div id="logins">
+		<div id="errorbox" style="">
+		Access denied </div>
+		<div id="registered" style="">
+			<h1 id="registeredhdr" class="swap"><span>REGISTERED USER</span></h1>
+			<form action="login" id="regform" method="post" autocomplete="off" title="Form used by registered users to login">
+
+			<div id="usernamebox">
+			<label for="user" accesskey="u">USERNAME</label>
+			<input type="text" name="user" id="user" size="25" class="text" accesskey="u" />
+			</div>
+			
+			<div id="passwordbox">
+			<label for="password" accesskey="p">PASSWORD</label>
+			<input id="password" name="password" type="password" size="25" class="text" accesskey="p" />
+			</div>
+
+			<div id="fqdnbox" style="display: none"></div>
+
+			<input type="hidden" name="cmd" value="authenticate" />
+			<input type="submit" name="Login" value="Log In" class="button" />
+			<p>Logging in as a registered user indicates you have 	read and accepted the <a href="javascript:void(0)" 	onclick="showPolicy();">Acceptable Use Policy</a>.</p>
+			
+			</form>
+		</div>
+
+
+//Success Response header
+	//This tho opens a popUP for external logout;
+		//response html and script
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> External Welcome Page</title>
+<meta http-equiv="refresh" content="2; url=http://webcast.pu.ac.in/cert/">
+</head>
+<body bgcolor=white text=000000>
+<script language="JavaScript">
+ var url="/cgi-bin/login?cmd=popup";
+ var w=210;
+ var h=80;
+ var x=window.screen.width - w - 20;
+ var y=window.screen.height - h - 60;
+ window.open(url, 'logout', "toolbar=no,location=no,width="+w+",height="+h+",top="+y+",left="+x+",screenX="+x+",screenY="+y);
+</script>
+
+</body>
+</html>
+
+
+//Logout response header
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<body bgcolor=white text=000000>
+<b>Logout Successful</b>
+<form>
+ <input type="button" onclick="window.close()" name="close" value="Close Window">
+</form>
+</body>
+</html>
+		// logout request GET https://securelogin.pu.ac.in/cgi-bin/login?cmd=logout //Query string 
+				cmd=logout
+
+
+https://securelogin.pu.ac.in/cgi-bin/login?cmd=logout
+
+
+
+
