@@ -23,7 +23,9 @@ print("PU LOGIN CLI\n")
 
 data={
         "user": "",
-        "password": ""
+        "password": "",
+        "altUser":"",
+        "altPassword":""
         }
 loginstr1="Login=Log%20In&cmd=authenticate&password="
 loginstr2="&user="
@@ -32,15 +34,18 @@ if(fileIsEmpty(filepath)):
     print("Hello, No Users Present.\nPlease enter a default username and password.\n")
     user=input("Enter Username:\t")
     password=getpass.getpass(prompt="Enter Password:\t")
+    altUser=input("Enter Alternate Username:\t")
+    altPassword=getpass.getpass(prompt="Enter Alternate User's Password:\t")
     try:
         data["user"]=user
         data["password"]=password
+        data["altUser"]=altUser
+        data["altPassword"]=altPassword
         f=open(filepath,"w")
         f.write(json.dumps(data))
         f.close()
     except IOError:
         print("Error creating file")
-
 
 
 
@@ -73,16 +78,25 @@ def printResponse(response):
 def loginToNetwork():
     print("Hello user, logging in with ID\t"+dataArg.get("user"))
     loginstr=loginstr1+dataArg.get("password")+loginstr2+dataArg.get("user")
-    myCmd="curl -# -k --data \""+loginstr+"\" https://securelogin.pu.ac.in/cgi-bin/login"
-    res=os.popen(myCmd,'r')
-    response=res.read()
-    printResponse(response)
-
+    myCmd="curl -# -k --tlsv1.0 --data \""+loginstr+"\" https://securelogin.pu.ac.in/cgi-bin/login"
+    try:
+        res=os.popen(myCmd,'r')
+        response=res.read()
+    except:
+        printResponse(response)
+        print("User is already logged in or the Site is unreachable.")
+    if(response=="Login Successful"):
+        printResponse(response)
+    else:
+        printResponse(response)
+        try:
+            print("\nTrying logging in with ID\t"+dataArg.get("altUser"))
+            loginstr=loginstr1+dataArg.get("altPassword")+loginstr2+dataArg.get("altUser")
+            myCmd="curl -# -k --tlsv1.0 --data \""+loginstr+"\" https://securelogin.pu.ac.in/cgi-bin/login"
+            res=os.popen(myCmd,'r')
+            response=res.read()
+            printResponse(response)
+        except:
+            printResponse(response)
+            print("User is already logged in or the Site is unreachable.")
 loginToNetwork()
-
-    
-
-
-
-
-
