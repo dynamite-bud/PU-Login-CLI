@@ -10,3 +10,11 @@ It automatically logs in when you type the respective command in the terminal.
 <h4>2.) cd ./PU-Login-CLI</h4>
 <h4>3.) ./install.sh</h4>
 <h4>4.) #Type pulogin on terminal for login or pulogout for logout</h4>
+
+<h5>LOGIN</h5>
+![Image of PULOGIN](/SShots/Screenshot from 2019-05-30 02-19-40.png)
+![Image of PULOGIN_SUCCESS](/SShots/Screenshot from 2019-05-30 02-20-22.png)
+<h5>LOGOUT</h5>
+![Image of PULOGOUT](/SShots/Screenshot from 2019-05-30 02-19-11.png)
+
+<h6>Thank You</h6>
