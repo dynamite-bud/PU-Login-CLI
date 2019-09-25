@@ -82,18 +82,20 @@ def loginToNetwork():
     try:
         res=os.popen(myCmd,'r')
         response=res.read()
+        printResponse(response)
+        exit(0)
     except:
         print("User is already logged in or the Site is unreachable.")
-    if(response=="Login Successful"):
+        exit(-1)
+    try:
+        print("\nTrying logging in with ID\t"+dataArg.get("altUser"))
+        loginstr=loginstr1+dataArg.get("altPassword")+loginstr2+dataArg.get("altUser")
+        myCmd="curl -# -k --tlsv1.0 --data \""+loginstr+"\" https://securelogin.pu.ac.in/cgi-bin/login"
+        res=os.popen(myCmd,'r')
+        response=res.read()
         printResponse(response)
-    else:
-        try:
-            print("\nTrying logging in with ID\t"+dataArg.get("altUser"))
-            loginstr=loginstr1+dataArg.get("altPassword")+loginstr2+dataArg.get("altUser")
-            myCmd="curl -# -k --tlsv1.0 --data \""+loginstr+"\" https://securelogin.pu.ac.in/cgi-bin/login"
-            res=os.popen(myCmd,'r')
-            response=res.read()
-            printResponse(response)
-        except:
-            print("User is already logged in or the Site is unreachable.")
+        exit(0)
+    except:
+        print("User is already logged in or the Site is unreachable.")
+        exit(-1)
 loginToNetwork()
