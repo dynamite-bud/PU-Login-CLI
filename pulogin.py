@@ -7,7 +7,7 @@ import getpass
 import re
 
 
-filepath="/home/rudra/Documents/Portal Login_files/data.json"
+filepath="./data.json"
 
 def fileExists(path):
     return os.path.isfile(path)
@@ -32,10 +32,10 @@ loginstr2="&user="
 
 if(fileIsEmpty(filepath)):
     print("Hello, No Users Present.\nPlease enter a default username and password.\n")
-    user=input("Enter Username:\t")
-    password=getpass.getpass(prompt="Enter Password:\t")
-    altUser=input("Enter Alternate Username:\t")
-    altPassword=getpass.getpass(prompt="Enter Alternate User's Password:\t")
+    user=input("Enter Username: ")
+    password=getpass.getpass(prompt="Enter Password: ")
+    altUser=input("Enter Alternate Username: ")
+    altPassword=getpass.getpass(prompt="Enter Alternate User's Password: ")
     try:
         data["user"]=user
         data["password"]=password
@@ -83,12 +83,10 @@ def loginToNetwork():
         res=os.popen(myCmd,'r')
         response=res.read()
     except:
-        printResponse(response)
         print("User is already logged in or the Site is unreachable.")
     if(response=="Login Successful"):
         printResponse(response)
     else:
-        printResponse(response)
         try:
             print("\nTrying logging in with ID\t"+dataArg.get("altUser"))
             loginstr=loginstr1+dataArg.get("altPassword")+loginstr2+dataArg.get("altUser")
@@ -97,6 +95,5 @@ def loginToNetwork():
             response=res.read()
             printResponse(response)
         except:
-            printResponse(response)
             print("User is already logged in or the Site is unreachable.")
 loginToNetwork()
