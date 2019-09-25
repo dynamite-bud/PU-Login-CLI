@@ -1,1 +1,0 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html> <body bgcolor=white text=000000> <font face="Verdana, Arial, Helvetica, sans-serif" size=+1> <b>Logout</b></font> <p> <a href="/cgi-bin/login?cmd=logout"> Click to Logout </a> </body> </html>
