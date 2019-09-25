@@ -15,6 +15,6 @@ It automatically logs in when you type the respective command in the terminal.
 ![Image of PULOGIN](/SShots/Screenshot from 2019-05-30 02-19-40.png)
 ![Image of PULOGIN_SUCCESS](/SShots/Screenshot from 2019-05-30 02-20-22.png)
 <h5>LOGOUT</h5>
-![Image of PULOGOUT](https://ibb.co/X4rSJvt)
+![Image of PULOGOUT](https://raw.githubusercontent.com/dynamite-bud/PU-Login-CLI/master/SShots/Screenshot%20from%202019-05-30%2002-19-11.png)
 
 <h6>Thank You</h6>
